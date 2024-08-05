@@ -1,9 +1,9 @@
 'use strict';
 
 //Task 1
-let name= prompt("Як Вас звати?");
-let age = prompt("Скільки Вам років?");
-let likesProgramming = confirm('Вам подобається програмувати?');
+const name= prompt("Як Вас звати?");
+const age = prompt("Скільки Вам років?");
+const likesProgramming = confirm('Вам подобається програмувати?');
 
 //Task 2
 console.log(name);
@@ -15,14 +15,14 @@ console.log(typeof age);
 console.log(typeof likesProgramming);
 
 //Task 3
-let greeting = `Привіт, ${name}!`;
+const greeting = `Привіт, ${name}!`;
 alert(greeting);
 
 //Task 4
-let numericAge = Number(age);
-let nextAge = numericAge + 1;
+const numericAge = Number(age);
+const nextAge = numericAge + 1;
 console.log(nextAge);
 
 //Task 5
-let isAdult = numericAge >= 18;
+const isAdult = numericAge >= 18;
 console.log(isAdult);
