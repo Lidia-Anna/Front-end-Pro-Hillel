@@ -2,7 +2,7 @@
     "name": "hw-1",
     "version": "1.0.0",
     "description": "",
-    "main": "index.js",
+    "main": "src/js/index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "prettier": "npx prettier . --write"
@@ -14,6 +14,7 @@
     "author": "Lidia",
     "license": "ISC",
     "dependencies": {
+        "eslint-config-airbnb": "^19.0.4",
         "lodash": "^4.17.21"
     },
     "bugs": {
@@ -21,6 +22,7 @@
     },
     "homepage": "https://github.com/Lidia-Anna/Front-end-Pro-Hillel#readme",
     "devDependencies": {
+        "eslint": "^8.57.0",
         "prettier": "3.3.3"
     }
 }
