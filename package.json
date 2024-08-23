@@ -1,25 +1,26 @@
 {
-  "name": "hw-1",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Lidia-Anna/Front-end-Pro-Hillel.git"
-  },
-  "author": "Lidia",
-  "license": "ISC",
-  "dependencies": {
-    "lodash": "^4.17.21"
-  },
-  "bugs": {
-    "url": "https://github.com/Lidia-Anna/Front-end-Pro-Hillel/issues"
-  },
-  "homepage": "https://github.com/Lidia-Anna/Front-end-Pro-Hillel#readme",
-  "devDependencies": {
-    "prettier": "3.3.3"
-  }
+    "name": "hw-1",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "prettier": "npx prettier . --write"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Lidia-Anna/Front-end-Pro-Hillel.git"
+    },
+    "author": "Lidia",
+    "license": "ISC",
+    "dependencies": {
+        "lodash": "^4.17.21"
+    },
+    "bugs": {
+        "url": "https://github.com/Lidia-Anna/Front-end-Pro-Hillel/issues"
+    },
+    "homepage": "https://github.com/Lidia-Anna/Front-end-Pro-Hillel#readme",
+    "devDependencies": {
+        "prettier": "3.3.3"
+    }
 }
