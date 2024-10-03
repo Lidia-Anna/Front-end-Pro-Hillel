@@ -1,14 +1,29 @@
-const generateTable = () => {
-  const tableSize = 10;
+'use strict';
+
+const appendHTMLElement = (parentEl = null, elementToAppend = null) => {
+  if (!parentEl || !elementToAppend) return;
+  parentEl.append(elementToAppend);
+};
+
+const generateTable = (rows, cols) => {
+  const arrayNumber = [];
+  const counterNumber = () => {
+    const randomNumber = Math.floor(Math.random() * 100 + 1);
+    if (!arrayNumber.includes(randomNumber)) {
+      arrayNumber.push(randomNumber);
+      return randomNumber;
+    }
+    return counterNumber();
+  };
   const table = document.createElement('table');
   const tbody = document.createElement('tbody');
   table.append(tbody);
-  for (let i = 1; i <= tableSize; i++) {
+  for (let i = 1; i <= rows; i++) {
     const tr = document.createElement('tr');
 
-    for (j = 1; j <= tableSize; j++) {
+    for (let j = 1; j <= cols; j++) {
       const td = document.createElement('td');
-      td.innerHTML = `${j}`;
+      td.innerHTML = `${counterNumber()}`;
       tr.append(td);
     }
 
@@ -16,4 +31,4 @@ const generateTable = () => {
   }
   return table;
 };
-document.body.append(generateTable());
+appendHTMLElement(document.body, generateTable(10, 10));
