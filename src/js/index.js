@@ -6,17 +6,14 @@ const appendHTMLElement = (parentEl = null, elementToAppend = null) => {
 };
 
 const createTagElement = (tagName) => {
+  const element = document.createElement(tagName);
   if (tagName === 'input') {
-    const inputElement = document.createElement('input');
-    inputElement.type = 'text';
-    return inputElement;
+    element.type = 'text';
+  } else if (tagName === 'div') {
+    element.classList.add('invisible');
+    element.innerHTML = 'Text';
   }
-  if (tagName === 'div') {
-    const divElement = document.createElement('div');
-    divElement.classList.add('invisible');
-    divElement.innerHTML = 'Text';
-    return divElement;
-  }
+  return element;
 };
 
 const inputElement = createTagElement('input');
