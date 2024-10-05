@@ -1,23 +1,32 @@
 'use strict';
 
-// Option 1
-const focusOnInput = document.getElementsByTagName('input');
-focusOnInput[0].addEventListener('focus', () => {
-  const div = document.getElementsByClassName('invisible');
-  div[0].classList.toggle('visible');
-});
-focusOnInput[0].addEventListener('blur', () => {
-  const div = document.getElementsByClassName('invisible');
-  div[0].classList.toggle('visible');
-});
+const appendHTMLElement = (parentEl = null, elementToAppend = null) => {
+  if (!parentEl || !elementToAppend) return;
+  parentEl.prepend(elementToAppend);
+};
 
-// Option 2
-// const focusOnInput = document.getElementsByTagName('input');
-// const div = document.getElementsByClassName('invisible');
+const createTagElement = (tagName) => {
+  if (tagName === 'input') {
+    const inputElement = document.createElement('input');
+    inputElement.type = 'text';
+    return inputElement;
+  }
+  if (tagName === 'div') {
+    const divElement = document.createElement('div');
+    divElement.classList.add('invisible');
+    divElement.innerHTML = 'Text';
+    return divElement;
+  }
+};
 
-// focusOnInput[0].addEventListener('focus', () => {
-// div[0].style.display = 'inline';
-// });
-// focusOnInput[0].addEventListener('blur', () => {
-// div[0].style.display = 'none';
-// });
+const inputElement = createTagElement('input');
+const divElement = createTagElement('div');
+appendHTMLElement(document.body, divElement);
+appendHTMLElement(document.body, inputElement);
+
+inputElement.addEventListener('focus', () => {
+  divElement.classList.toggle('visible');
+});
+inputElement.addEventListener('blur', () => {
+  divElement.classList.toggle('visible');
+});
