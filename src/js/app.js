@@ -1,3 +1,5 @@
+'use strict';
+
 (function () {
   const form = document.querySelector('[data-todo-form]');
   const listContainer = document.querySelector('#todoItems');
