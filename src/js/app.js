@@ -15,8 +15,9 @@
 
     wrapperDiv.innerHTML = `
             <div class="list-group-item bg-light taskWrapper mb-4">
-                <div class="taskHeading">${title}</div>
+                <div class="taskHeading"><b>${title}</b></div>
                 <div class="taskDescription mb-2">${description}</div>
+                <hr>
                 <button class="btn btn-danger delete-btn">Delete</button>
             </div>`;
     return wrapperDiv;
@@ -32,10 +33,10 @@
     objOfTask[newTask.id] = newTask;
     return { ...newTask };
   };
-  const saveData = (title, description) => {
+  const saveData = ({ id, title, description }) => {
     let saveDatas = JSON.parse(localStorage.getItem('todoItems'));
     if (!saveDatas) saveDatas = [];
-    saveDatas.push({ title, description });
+    saveDatas.push({ id, title, description });
     localStorage.setItem('todoItems', JSON.stringify(saveDatas));
   };
 
@@ -48,8 +49,9 @@
       alert('Please input title and description');
       return;
     }
-    saveData(titleValue, descriptionValue);
+
     const task = createNewTask(titleValue, descriptionValue);
+    saveData(task);
     const listItem = listItemTemplate(task);
     listContainer.prepend(listItem);
     form.reset();
@@ -63,6 +65,13 @@
     return isConfirm;
   };
 
+  const deleteTaskFromLocakStorage = (confirmed, id) => {
+    const savedData = JSON.parse(localStorage.getItem('todoItems'));
+    const index = savedData.findIndex((item) => item.id === id);
+    savedData.splice(index, 1);
+    localStorage.setItem('todoItems', JSON.stringify(savedData));
+  };
+
   const deleteTaskFromHTML = (confirmed, element) => {
     if (!confirmed) return;
     element.remove();
@@ -73,6 +82,7 @@
       const parent = target.closest('[data-task-id]');
       const id = parent.dataset.taskId;
       const confirmed = deleteTask(id);
+      deleteTaskFromLocakStorage(confirmed, id);
       deleteTaskFromHTML(confirmed, parent);
     }
   };
