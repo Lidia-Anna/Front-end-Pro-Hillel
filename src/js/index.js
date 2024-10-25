@@ -16,7 +16,7 @@
     set ourPrice(value) {
       if (typeof value === 'number' && value > 0) {
         this.price = value;
-      } else throw new Error('Price is not a number or < 0');
+      } else throw new Error('Price is not a number or <= 0');
     },
     get ourQuantity() {
       return this.price * this.quantity;
