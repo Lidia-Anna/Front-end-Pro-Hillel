@@ -12,8 +12,7 @@ class TaskQueue {
     }
 
     run() {
-        let promiseTask = Promise.resolve();
-
+      let promiseTask = Promise.resolve();
         this.arrTask.forEach((task) => {
             promiseTask = promiseTask
                 .then(() => {
@@ -22,7 +21,7 @@ class TaskQueue {
                 });
         });
 
-        promiseTask.then(() => {
+        promiseTask.finally(() => {
             console.log('Усі завдання завершено');
         });
     }
