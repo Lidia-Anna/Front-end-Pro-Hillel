@@ -59,9 +59,3 @@
 
   form.addEventListener('submit', getPost);
 })();
-// const getPost = async (number = 5) => {
-//  let posts = await fetch(`https://jsonplaceholder.typicode.com/posts/${number}`);
-//  posts = await posts.json();
-
-// console.log(posts.body);
-// };
